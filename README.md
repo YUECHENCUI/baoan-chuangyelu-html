@@ -15,3 +15,11 @@ TEKUMA 创业路 26 页演示（由 `宝安创业路-1009.pptx` 迁至 HTML）�
 ## 说明
 
 交互地图页（8–10、12、21、22）依赖网络。企业点位为示意聚合，非精确地址编码。
+
+## Preview · slides 8–9 (map)
+
+Standalone map check (Amap satellite + masterplan):
+
+https://yuechencui.github.io/baoan-chuangyelu-html/preview-8-9/
+
+Main deck slide 8: https://yuechencui.github.io/baoan-chuangyelu-html/#8

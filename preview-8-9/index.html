@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Preview · slides 8–9 · 宝安创业路 map</title>
+<link rel="stylesheet" href="lib/maplibre-gl.css" />
+<link rel="stylesheet" href="css/deck.css" />
+<style>
+  #preview-banner {
+    position: fixed; top: 8px; left: 50%; transform: translateX(-50%);
+    z-index: 120; pointer-events: none;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(244,240,232,0.55);
+    background: rgba(10,10,12,0.72); border: 1px solid rgba(212,168,75,0.28);
+    padding: 6px 14px; backdrop-filter: blur(8px);
+  }
+  #preview-counter {
+    position: fixed; bottom: 14px; right: 3.5%;
+    z-index: 120; font-size: 11px; letter-spacing: 0.18em;
+    color: rgba(244,240,232,0.45); font-variant-numeric: tabular-nums;
+  }
+</style>
+</head>
+<body>
+<div id="preview-banner">Standalone preview · slides 08–09 · Amap satellite + masterplan</div>
+<div id="progress"></div>
+<div id="nav-hint">← → 或空格：08 overview → 09 宝中 zoom</div>
+<div id="preview-counter">08 / preview</div>
+<div class="nav-zones" aria-hidden="true">
+  <div class="zone zone-left" title="上一页"></div>
+  <div class="zone zone-right" title="下一页"></div>
+</div>
+
+<div id="shared-map-root">
+  <div id="shared-map" class="maplibre-map"></div>
+  <div class="map-soft-mask"></div>
+</div>
+
+<div id="deck">
+
+<section class="slide slide-map is-active" data-i="8">
+  <div class="slide-inner" style="background:transparent">
+    <div class="brand-mini">TEKUMA · 三类创新生态</div>
+    <div class="district-chips">
+      <div class="district-chip">
+        <div class="en">BAY HEART · BAOZHONG</div>
+        <div class="zh">宝安中心区</div>
+        <div class="tagline">具身智能港 × 海城大都会</div>
+      </div>
+      <div class="district-chip">
+        <div class="en">CITY HEART · LINGZHI</div>
+        <div class="zh">灵芝片区</div>
+        <div class="tagline">超级个体孵化器 × 潮流市井道街巷</div>
+      </div>
+      <div class="district-chip">
+        <div class="en">MOUNTAIN HEART · JIANGANGSHAN</div>
+        <div class="zh">尖岗山片区</div>
+        <div class="tagline">智能终端创新园 × 湾区山城后花园</div>
+      </div>
+    </div>
+    <div class="map-caption">三类创新生态 · 三种美好生活</div>
+    <div class="page-num">08 / 26</div>
+  </div>
+</section>
+
+<section class="slide slide-map" data-i="9">
+  <div class="slide-inner" style="background:transparent">
+    <div class="brand-mini">TEKUMA</div>
+    <div class="map-panel right">
+      <div class="district-tag">01 · 海心</div>
+      <div class="en">BAY HEART · BAOZHONG</div>
+      <h2>具身智能港 × 海城大都会</h2>
+      <p>Embodied AI Harbor × Bay City Metropolis</p>
+      <p style="margin-top:1rem">成熟都市能级与滨海公共空间，叠加具身智能产业集聚——宝中成为创新成果展示与资源连接的开放舞台。</p>
+    </div>
+    <div class="page-num">09 / 26</div>
+  </div>
+</section>
+
+</div>
+
+<script src="lib/maplibre-gl.js"></script>
+<script src="js/maps.js"></script>
+<script src="js/deck.js"></script>
+</body>
+</html>
