@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>宝安创业路 · TEKUMA × 华润 briefing</title>
+<link rel="stylesheet" href="lib/maplibre-gl.css" />
+<link rel="stylesheet" href="css/deck.css" />
+<style>
+  /* slide-specific tweaks kept tiny */
+  .slide-07 .hero-title { font-size: clamp(26px, 2.4vw, 36px); }
+  .slide-10 .map-panel.right { background: rgba(10,10,12,0.82); }
+  .slide-13 .diagram-visual { display:grid; grid-template-rows: auto 1fr; gap:0.8rem; height:100%; }
+  .slide-13 .diagram-visual img { object-fit:contain; background:#111; border:1px solid rgba(255,255,255,.06); }
+  .intro-bar {
+    position:absolute; left:5%; right:5%; bottom:8%; z-index:3;
+    background:rgba(8,8,10,.74); border-left:3px solid var(--gold);
+    padding:1.15rem 1.4rem; backdrop-filter:blur(10px); max-width:68%;
+  }
+  .intro-bar p { font-size:clamp(15px,1.3vw,19px); line-height:1.55; color:var(--ink); }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="nav-hint">← → 或空格翻页 · 地图可缩放拖拽</div>
+<div class="nav-zones" aria-hidden="true">
+  <div class="zone zone-left" title="上一页"></div>
+  <div class="zone zone-right" title="下一页"></div>
+</div>
+
+<!-- Persistent shared MapLibre for slides 8/9/10/12/21 -->
+<div id="shared-map-root">
+  <div id="shared-map" class="maplibre-map"></div>
+  <div class="map-soft-mask"></div>
+</div>
+
+<div id="deck">
+
+<!-- 1 -->
+<section class="slide slide-type is-active" data-i="1">
+  <div class="slide-inner">
+    <div class="brand-mini">TEKUMA</div>
+    <div class="type-block">
+      <div class="type-num">01 / 价值判断</div>
+      <div class="type-text">深圳是一座<em>包容</em>的城市，留住每一代年轻人，是深圳创新之城的立足之本。</div>
+    </div>
+    <div class="page-num">01 / 26</div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="slide slide-type" data-i="2">
+  <div class="slide-inner">
+    <div class="brand-mini">TEKUMA</div>
+    <div class="type-block">
+      <div class="type-num">02 / 价值判断</div>
+      <div class="type-text">无论是一座城市还是一个街区，<em>创新主体的多样化</em>是一个创新生态可持续生长的关键。</div>
+    </div>
+    <div class="page-num">02 / 26</div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="slide slide-type" data-i="3">
+  <div class="slide-inner">
+    <div class="brand-mini">TEKUMA</div>
+    <div class="type-block">
+      <div class="type-num">03 / 价值判断</div>
+      <div class="type-text">AI降低知识获取、工具使用、创造能力与组织成本的门槛，更多创新活动从小型团队与个人开始——这使得<em>街巷和第三空间</em>越发成为创新发生地，低成本空间成为创新基础设施。</div>
+    </div>
+    <div class="page-num">03 / 26</div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="slide slide-type" data-i="4">
+  <div class="slide-inner">
+    <div class="brand-mini">TEKUMA</div>
+    <div class="type-block">
+      <div class="type-num">04 / 价值判断</div>
+      <div class="type-text">对于在丰富物质与精神世界中成长起来的新一代产业人才而言，需要认识到其在创业和工作之外的对<em>美好生活与精神世界</em>的追求。</div>
+    </div>
+    <div class="page-num">04 / 26</div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="slide slide-type" data-i="5">
+  <div class="slide-inner">
+    <div class="brand-mini">TEKUMA</div>
+    <div class="type-block">
+      <div class="type-num">05 / 价值判断</div>
+      <div class="type-text"><em>山海资源</em>仍然是高密度城市长期美好生活的稀缺品。</div>
+    </div>
+    <div class="page-num">05 / 26</div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="slide slide-type" data-i="6">
+  <div class="slide-inner">
+    <div class="brand-mini">TEKUMA</div>
+    <div class="type-block">
+      <div class="type-num">06 / 项目难点</div>
+      <div class="type-text">创业路拥有孕育创新主体持续生长的多元化基因，也拥有海山城美好生活的稀缺地理资源。</div>
+      <div class="type-sub">难点在于正确理解当下和未来——如何通过<em style="color:var(--gold);font-style:normal">更新与运营</em>，把现在的存量空间转化为未来创新工作和美好生活的真实需求。</div>
+    </div>
+    <div class="page-num">06 / 26</div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="slide slide-hero slide-07" data-i="7">
+  <div class="slide-inner">
+    <div class="hero-bg" style="background-image:url('assets/image15.jpg')"></div>
+    <div class="hero-veil"></div>
+    <div class="brand-mini">TEKUMA</div>
+    <div class="hero-copy">
+      <div class="kicker">总体战略定位</div>
+      <h1 class="hero-title">
+        <span class="line">AI创新生态第一路</span>
+        <span class="line">山海城美好生活栖居地</span>
+        <span class="line">深圳城市再生长样本</span>
+      </h1>
+      <p class="hero-vision">产业创新 × 美好生活，<strong>一同生长</strong></p>
+    </div>
+    <div class="page-num">07 / 26</div>
+  </div>
+</section>
+
+<!-- 8 overview map -->
+<section class="slide slide-map" data-i="8">
+  <div class="slide-inner" style="background:transparent">
+    <div class="brand-mini">TEKUMA · 三类创新生态</div>
+    <div class="district-chips">
+      <div class="district-chip">
+        <div class="en">BAY HEART · BAOZHONG</div>
+        <div class="zh">宝安中心区</div>
+        <div class="tagline">具身智能港 × 海城大都会</div>
+      </div>
+      <div class="district-chip">
+        <div class="en">CITY HEART · LINGZHI</div>
+        <div class="zh">灵芝片区</div>
+        <div class="tagline">超级个体孵化器 × 潮流市井道街巷</div>
+      </div>
+      <div class="district-chip">
+        <div class="en">MOUNTAIN HEART · JIANGANGSHAN</div>
+        <div class="zh">尖岗山片区</div>
+        <div class="tagline">智能终端创新园 × 湾区山城后花园</div>
+      </div>
+    </div>
+    <div style="position:absolute;left:3.5%;bottom:5%;z-index:4;font-size:13px;letter-spacing:.18em;color:var(--gold)">三类创新生态 · 三种美好生活</div>
+    <div class="page-num">08 / 26</div>
+  </div>
+</section>
+
+<!-- 9 baozhong zoom -->
+<section class="slide slide-map" data-i="9">
+  <div class="slide-inner" style="background:transparent">
+    <div class="brand-mini">TEKUMA</div>
+    <div class="map-panel right">
+      <div class="district-tag">01 · 海心</div>
+      <div class="en">BAY HEART · BAOZHONG</div>
+      <h2>具身智能港 × 海城大都会</h2>
+      <p>Embodied AI Harbor × Bay City Metropolis</p>
+      <p style="margin-top:1rem">成熟都市能级与滨海公共空间，叠加具身智能产业集聚——宝中成为创新成果展示与资源连接的开放舞台。</p>
+    </div>
+    <div class="page-num">09 / 26</div>
+  </div>
+</section>
+
+<!-- 10 harbor enterprises -->
+<section class="slide slide-map slide-10" data-i="10">
+  <div class="slide-inner" style="background:transparent">
+    <div class="brand-mini">TEKUMA · 具身智能港</div>
+    <div class="map-legend">
+      <span><i class="dot green"></i>本体企业</span>
+      <span><i class="dot orange"></i>具身智能数据服务</span>
+      <span><i class="dot red"></i>核心零部件</span>
+      <span style="opacity:.55">示意点位 · 非精确地址</span>
+    </div>
+    <div class="map-panel right">
+      <div class="en">QIANHAI · BAO'AN</div>
+      <h2>具身智能港</h2>
+      <p style="color:var(--ink);margin-bottom:.8rem">具身智能产业创新聚集区</p>
+      <p>2026年5月8日，“宝智链新”前海·宝安人工智能产业发展大会上正式发布“具身智能港”，定位是具有国际影响力的具身智能产业创新引领区。</p>
+      <p style="margin-top:.7rem">港内已集聚超<strong style="color:var(--gold)">139</strong>家具身智能上下游企业，覆盖算力、感知大模型、核心零部件到整机。</p>
+    </div>
+    <div class="page-num">10 / 26</div>
+  </div>
+</section>
+
+<!-- 11 lifestyle -->
+<section class="slide" data-i="11">
+  <div class="slide-inner">
+    <div class="tri-images">
+      <figure><img src="assets/image18.png" alt="宝中场景1" /></figure>
+      <figure><img src="assets/image19.png" alt="宝中场景2" /></figure>
+      <figure><img src="assets/image20.png" alt="宝中场景3" /></figure>
+    </div>
+    <div class="tri-caption">
+      <p>成熟的商务、文体、商业与滨海公共空间基础，叠加具身智能等新兴产业发展动向——宝安中心区应当成为创新成果展示与资源连接的<em style="color:var(--gold);font-style:normal">开放舞台</em>，与满足顶尖科创人才美好生活的<em style="color:var(--gold);font-style:normal">第一居所</em>。</p>
+    </div>
+    <div class="brand-mini">TEKUMA</div>
+    <div class="page-num">11 / 26</div>
+  </div>
+</section>
+
+<!-- 12 lingzhi -->
+<section class="slide slide-map" data-i="12">
+  <div class="slide-inner" style="background:transparent">
+    <div class="brand-mini">TEKUMA</div>
+    <div class="map-panel right">
+      <div class="district-tag">02 · 城心</div>
+      <div class="en">CITY HEART · LINGZHI</div>
+      <h2>超级个体孵化器 × 潮流市井道街巷</h2>
+      <p>Super-Individual Incubator × Trendy Lanes &amp; Alleys</p>
+      <p style="margin-top:1rem">街巷肌理与低成本空间，是超级个体与 OPC 来深创业的第一落脚点。</p>
+    </div>
+    <div class="page-num">12 / 26</div>
+  </div>
+</section>
+
+<!-- 13 OPC diagram -->
+<section class="slide diagram-slide slide-13" data-i="13">
+  <div class="slide-inner">
+    <div class="brand-mini">TEKUMA</div>
+    <h2>街巷与第三空间成为创新发生地</h2>
+    <p class="lead">AI降低知识获取、工具使用、创造能力与组织成本的门槛，超级个体/组织与 OPC 正在崛起——低成本弹性产业空间，应对加速迭代的企业生长周期。</p>
+    <div class="diagram-row">
+      <div class="diagram-visual">
+        <img src="assets/image21.png" alt="概念示意" />
+        <object data="assets/image22.svg" type="image/svg+xml" aria-label="弹性空间示意" style="width:100%;min-height:180px;background:#111;border:1px solid rgba(255,255,255,.06)"></object>
+      </div>
+      <div style="display:flex;flex-direction:column;justify-content:center;gap:1rem;padding:0 .5rem">
+        <div class="fact"><b>超级个体 / OPC</b><span>小型团队与个人成为创新主引擎</span></div>
+        <div class="fact"><b>第三空间</b><span>街巷、咖啡馆、共享工作空间成为发生地</span></div>
+        <div class="fact"><b>弹性供给</b><span>低成本空间匹配企业加速迭代周期</span></div>
+      </div>
+    </div>
+    <div class="page-num">13 / 26</div>
+  </div>
+</section>
+
+<!-- 14 metrics -->
+<section class="slide diagram-slide" data-i="14">
+  <div class="slide-inner">
+    <div class="brand-mini">TEKUMA · 灵芝</div>
+    <h2>而街巷和低成本空间正是灵芝的特征</h2>
+    <div class="stat-row">
+      <div class="stat"><strong>7.5</strong><span>街道网密度 km/km²</span></div>
+      <div class="stat"><strong>120×80</strong><span>街区尺度 m（类曼哈顿核心区）</span></div>
+    </div>
+    <p class="lead" style="max-width:90%">新安拥有多样尺度的街巷空间，既有城中村的市井小巷，也有现代的林荫主街。街巷及转角空间丰富，较高的连通性为街道空间带来更多活力，同时也使街道具备更强的改造更新潜力。</p>
+    <div style="flex:1;min-height:0;border:1px solid rgba(255,255,255,.06);background:#111;display:flex;align-items:center;justify-content:center">
+      <img src="assets/image23.png" alt="街巷肌理分析" style="max-height:100%;width:100%;object-fit:contain" />
+    </div>
+    <div class="page-num">14 / 26</div>
+  </div>
+</section>
+
+<!-- 15 micro renewal -->
+<section class="slide bleed-cap" data-i="15">
+  <div class="slide-inner">
+    <div class="bg" style="background-image:url('assets/image24.jpeg')"></div>
+    <div class="brand-mini">TEKUMA</div>
+    <div class="cap">
+      <p>策略：通过对低成本空间的<em style="color:var(--gold);font-style:normal">微更新</em>，形成适合当代年轻群体生活生产方式的创新空间，成为超级个体/组织来深创业的<em style="color:var(--gold);font-style:normal">第一落脚点</em>。</p>
+    </div>
+    <div class="page-num">15 / 26</div>
+  </div>
+</section>
+
+<!-- 16 rebuild from screenshot -->
+<section class="slide" data-i="16">
+  <div class="slide-inner">
+    <div class="rebuild">
+      <div class="brand-mini" style="position:static;margin-bottom:.5rem">TEKUMA</div>
+      <h2>低成本空间持续供给，吸引年轻创意群体及初创企业</h2>
+      <div class="en-sub">CONTINUED SUPPLY OF LOW-COST SPACE · ATTRACTING CREATIVE GROUPS &amp; START-UPS</div>
+      <div class="rebuild-grid">
+        <div class="card">
+          <h3>6% 低成本创意聚场</h3>
+          <p class="mb-1">低成本创意、创业与居住空间的持续供给，是吸引年轻创意群体与微型企业的主要途径，也是激发城市创新与降低创业风险的空间载体。结合城中村与厂房有机更新，未来创业路沿线将提供多处低成本创业空间，形成源源不断吸引创意人才的磁场。</p>
+          <ul>
+            <li><strong style="color:var(--ink)">厂房改造</strong> — 保留建筑质量较好的厂房，通过创意化微改造提供低成本创业与文化创意空间</li>
+            <li><strong style="color:var(--ink)">平价住房</strong> — “政府 + 企业 + 村集体”综合整治，为青年人才提供平价居住</li>
+            <li><strong style="color:var(--ink)">创意 Xbox</strong> — 可自由组合叠加的网格模块化广场与装置，服务展示、社群与公共互动</li>
+          </ul>
+          <img src="assets/image25.png" alt="低成本创意聚场模式图" style="object-fit:contain;max-height:40%;background:#0d0d0f" />
+        </div>
+        <div class="card">
+          <h3>创新社区实验空间 · 吸引 6% 创意工作者</h3>
+          <div class="pct-row">
+            <span>1%</span><span>2%</span><span>3%</span><span>4%</span><span>5%</span>
+            <span class="big">6%</span>
+          </div>
+          <p class="mb-1">加菲尔德社区的“6%理论”指出：一个地区只要吸引 6% 的创意人才，年轻人就会持续涌入，“创意阶层”成为评判城市未来发展潜力的独特指标。本质是如何吸引人、留住人，并在城市中创造更大价值。</p>
+          <p class="dim" style="font-size:12px;margin-bottom:.55rem">文化多样性、初创空间、有趣味性的社区活动、丰富的休闲消费场所——创新社区的基本要素。</p>
+          <div class="photo-grid-2" style="grid-template-columns:1fr 1fr;gap:.4rem">
+            <div class="fact" style="border:1px solid rgba(255,255,255,.06);padding:.55rem"><b style="font-size:13px">创意 Xbox</b><span>模块化公共装置</span></div>
+            <div class="fact" style="border:1px solid rgba(255,255,255,.06);padding:.55rem"><b style="font-size:13px">厂房改造</b><span>工业遗存微更新</span></div>
+            <div class="fact" style="border:1px solid rgba(255,255,255,.06);padding:.55rem"><b style="font-size:13px">城中村创意工作室</b><span>嵌入式工作空间</span></div>
+            <div class="fact" style="border:1px solid rgba(255,255,255,.06);padding:.55rem"><b style="font-size:13px">社区实验室</b><span>实验场与公共界面</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="page-num" style="position:static;text-align:right;margin-top:.35rem">16 / 26</div>
+    </div>
+  </div>
+</section>
+
+<!-- 17 rebuild -->
+<section class="slide" data-i="17">
+  <div class="slide-inner">
+    <div class="rebuild">
+      <h2>由低成本社区转向适应未来的创意社区</h2>
+      <div class="en-sub">FROM LOW-COST COMMUNITIES TO FUTURE-PROOF CREATIVE COMMUNITIES</div>
+      <p class="dim" style="font-size:13px;margin-bottom:.7rem;max-width:92%">现状城中村多为单一租赁化住房（10–20㎡简易单身宿舍为主）。未来人口结构与居住需求变化，将驱动混合化街区——满足创新、成套化改造与商业服务等多元需求。</p>
+      <div class="steps">
+        <div class="step"><b>STEP 01</b><span>单一租赁宿舍 + 底层商业</span></div>
+        <div class="step"><b>STEP 02</b><span>综合整治：平价居住 + 植入创意办公</span></div>
+        <div class="step"><b>STEP 03</b><span>中间层掏空空中平台；底层架空灰空间</span></div>
+        <div class="step"><b>STEP 04</b><span>局部成套化 + 多功能屋顶花园</span></div>
+        <div class="step"><b>STEP 05</b><span>多元化混合街区，理想落脚地</span></div>
+      </div>
+      <div class="rebuild-grid" style="grid-template-columns:1fr 1fr 1fr">
+        <div class="card">
+          <h3>现状 → 未来结构</h3>
+          <img src="assets/image27.png" alt="现状与未来功能混合" />
+          <p style="margin-top:.45rem;font-size:12px">混合街区 · 公共空间 · 人才公寓 · 成套住房 · 孵化器 · 工作室 LOFT · 社区服务</p>
+        </div>
+        <div class="card">
+          <h3>五步演进</h3>
+          <img src="assets/image28.png" alt="五步演进等轴测" />
+          <p style="margin-top:.45rem;font-size:12px">未来居住生活方式转变，社区混合程度进一步提升</p>
+        </div>
+        <div class="card">
+          <h3>高混合度社区剖面</h3>
+          <img src="assets/image26.png" alt="高混合度剖面与生活方式" />
+          <p style="margin-top:.45rem;font-size:12px">屋顶农场 · 聚会场所 · 共享厨房 · 健身房 · 咖啡厅 · LOFT — 工作与生活边界模糊化</p>
+        </div>
+      </div>
+      <div class="page-num" style="position:static;text-align:right;margin-top:.35rem">17 / 26</div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 Corgi -->
+<section class="slide" data-i="18">
+  <div class="slide-inner">
+    <div class="case-layout">
+      <div class="case-gallery">
+        <div class="main"><img src="assets/image30-web.jpg" alt="Corgi Cafe exterior (Kit frame)" /></div>
+        <div class="row">
+          <img src="assets/research/corgi-cafe-interior.jpg" alt="Corgi Cafe interior press" />
+          <img src="assets/image29.png" alt="Corgi Cafe interior frame" />
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="meta">CASE · SF · CORGI CAFE / CORGI INSURANCE (YC S24)</div>
+        <h2>低成本创新业态：<span class="gold">「创业保险公司」</span>第三空间</h2>
+        <p class="dim">最近在 SF 非常火爆的低成本创新业态——Corgi Cafe。AI 原生保险初创 Corgi 租下 FiDi 空间后，把一层做成全天候咖啡馆，上层为公司办公；一层聚集 OPC、独立开发者与 founder，现场即为创业保险的入口与品牌界面。</p>
+        <div class="fact-grid">
+          <div class="fact"><b>24/7</b><span>2026-02-13 开业 · “The Cafe For Builders”</span></div>
+          <div class="fact"><b>9 Claude Ln</b><span>FiDi；一层零售咖啡 + 同楼上层 HQ（新闻报道为 5F；叙事：楼下社群 / 楼上办公）</span></div>
+          <div class="fact"><b>Carrier</b><span>AI-native 全栈保险持牌公司，面向 startup 产品</span></div>
+          <div class="fact"><b>Real-estate hack</b><span>办公租约捆绑底层零售 → 激活空置 FiDi 临街</span></div>
+        </div>
+        <p class="dim">对我们的启示：低成本第三空间可以同时是<strong style="color:var(--ink)">创新发生地</strong>与<strong style="color:var(--ink)">产业服务接口</strong>——灵芝道街巷可映射为「一层磁吸社群 + 上层弹性办公 + 桌上式服务产品」。</p>
+        <p class="footnote">Sources: corgicafe.com · PR Newswire 2026-02-17 · SF Gazetteer. 外立面保留 Kit 现场帧；室内用公开宣传图。</p>
+      </div>
+    </div>
+    <div class="page-num">18 / 26</div>
+  </div>
+</section>
+
+<!-- 19 street system intro -->
+<section class="slide bleed-cap" data-i="19">
+  <div class="slide-inner">
+    <div class="bg" style="background-image:url('assets/image32.jpeg')"></div>
+    <div class="brand-mini">TEKUMA</div>
+    <div class="cap">
+      <p>而这里的街巷可以成为各具特色的、可以逛的目的地系统，希望为更加多元的人群提供日常美好生活的目的地——我们把这个体系归纳为：<em style="color:var(--gold);font-style:normal">街 · 巷 · 道</em>。</p>
+    </div>
+    <div class="page-num">19 / 26</div>
+  </div>
+</section>
+
+<!-- 20 three street types -->
+<section class="slide" data-i="20">
+  <div class="slide-inner">
+    <div class="strip3">
+      <figure>
+        <img src="assets/image33.jpeg" alt="道-创业路" />
+        <figcaption>
+          <div class="label">道</div>
+          <h3>创业路</h3>
+          <p>多样速率的风景林荫道</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="assets/image34.jpeg" alt="街-建安一路" />
+        <figcaption>
+          <div class="label">街</div>
+          <h3>建安一路</h3>
+          <p>弹性可变的潮流商业街</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="assets/image35.jpeg" alt="巷-怡康巷" />
+        <figcaption>
+          <div class="label">巷</div>
+          <h3>怡康巷</h3>
+          <p>市井烟火与创意交融的活力里巷</p>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="page-num">20 / 26</div>
+  </div>
+</section>
+
+<!-- 21 jiangangshan -->
+<section class="slide slide-map" data-i="21">
+  <div class="slide-inner" style="background:transparent">
+    <div class="brand-mini">TEKUMA</div>
+    <div class="map-panel right">
+      <div class="district-tag">03 · 山心</div>
+      <div class="en">MOUNTAIN HEART · JIANGANGSHAN</div>
+      <h2>智能终端创新园 × 湾区山城后花园</h2>
+      <p>Intelligent Terminal Innovation Park × GBA Talent Retreat</p>
+      <p style="margin-top:1rem">山城地理资源与科创园区并置——以强运营与美好生活系统承接人才与产业。</p>
+    </div>
+    <div class="page-num">21 / 26</div>
+  </div>
+</section>
+
+<!-- 22 beer-xili map -->
+<section class="slide slide-map" data-i="22">
+  <div class="slide-inner">
+    <div class="map-host" style="inset:0">
+      <div id="beer-map" class="maplibre-map" style="width:100%;height:100%"></div>
+      <div class="map-soft-mask"></div>
+    </div>
+    <div class="brand-mini">TEKUMA · 廊道联系</div>
+    <div class="map-panel" style="left:3.5%;top:12%;width:min(36%,440px);z-index:4;background:rgba(10,10,12,.78);border:1px solid var(--line);padding:1.2rem 1.35rem;backdrop-filter:blur(12px)">
+      <div class="en">CORRIDOR · WGS84 SCHEMATIC</div>
+      <h2 style="font-size:clamp(18px,1.6vw,24px)">啤酒小镇 ↔ 留仙洞 / 西丽枢纽</h2>
+      <p style="margin-top:.7rem">尖岗山啤酒小镇（雪花科创城 · 兴东附近）沿创业二路 / 留仙走廊东连留仙洞总部基地，再南向衔接在建<strong style="color:var(--ink)">西丽高铁综合枢纽</strong>——串起职住与南山科创通勤。</p>
+      <div class="map-legend" style="position:static;margin-top:1rem;padding:0;border:0;background:transparent">
+        <span><i class="dot gold"></i>啤酒小镇</span>
+        <span><i class="dot" style="background:#7ec8e3"></i>留仙洞</span>
+        <span><i class="dot red"></i>西丽枢纽 ≈22.570 / 113.940</span>
+      </div>
+      <p class="footnote" style="margin-top:.7rem">示意廊道（参考 image36）。西丽枢纽取高铁站工地区位，勿与地铁西丽站混淆。底图 Esri World Imagery · WGS84。</p>
+    </div>
+    <div class="page-num">22 / 26</div>
+  </div>
+</section>
+
+<!-- 23 Frontier Tower -->
+<section class="slide" data-i="23">
+  <div class="slide-inner">
+    <div class="frontier">
+      <div class="frontier-visual" style="display:grid;grid-template-rows:1.2fr 0.8fr;min-height:0">
+        <div style="position:relative;min-height:0">
+          <img src="assets/research/frontier-01-exterior.jpg" alt="Frontier Tower exterior" style="width:100%;height:100%;object-fit:cover;filter:brightness(.75)" />
+          <div class="badge" style="position:absolute;left:6%;bottom:8%;background:rgba(10,10,12,.75);border:1px solid var(--line);padding:.8rem 1rem;backdrop-filter:blur(10px)">
+            <b style="display:block;font-size:18px;color:var(--gold)">Frontier Tower</b>
+            <span style="font-size:12px;color:var(--ink-dim)">16 Floors · 995 Market St · Deep-Tech Vertical Village</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;min-height:0">
+          <img src="assets/research/frontier-02-whiteboard.jpg" alt="Floor program whiteboard" style="width:100%;height:100%;object-fit:cover;filter:brightness(.8)" />
+          <img src="assets/research/frontier-03-community.jpg" alt="Community interior" style="width:100%;height:100%;object-fit:cover;filter:brightness(.8)" />
+          <img src="assets/research/frontier-05-community.jpg" alt="Community activity" style="width:100%;height:100%;object-fit:cover;filter:brightness(.8)" />
+        </div>
+      </div>
+      <div class="frontier-body">
+        <div class="meta" style="font-size:12px;letter-spacing:.16em;color:var(--gold)">强运营型科创产业空间</div>
+        <h2>办公去化 → 用<em style="font-style:normal;color:var(--gold)">强运营</em>增强弹性与产品力</h2>
+        <p class="dim" style="font-size:13px">将空置写字楼产品化为会员制「垂直村」：主题楼层、共享实验室、高频活动与 citizenship——用运营密度替代单纯物业出租。</p>
+        <ul class="ops-list">
+          <li><b>PROGRAM</b><span>16 层主题分区：AI / robotics / neuro-bio / maker / arts / fitness / Spaceship 活动层 / d/acc lounge</span></li>
+          <li><b>MEMBERSHIP</b><span>Citizenship ≈ $150–190/月；独立办公另计；公开成员口径约 200→750+（快速变化，作区间）</span></li>
+          <li><b>OPS MODEL</b><span>Floor leads 策展楼层部落；塔方管基础设施与会籍/活动产品（~$11M 收购空楼）</span></li>
+          <li><b>CRE HOOK</b><span>锚定 20–30% 办公空置叙事 → 把空楼卖成社群运营产品</span></li>
+          <li><b>对尖岗山</b><span>学模式：主题楼层 + flex + 1F 磁吸 + demo day；非照搬品牌与 Mid-Market 语境</span></li>
+        </ul>
+        <p class="footnote">Sources: frontiertower.io · SF Standard 2025-05-18 · xyz.city. 图片 xyz.city / SF Standard（内部汇报）。</p>
+      </div>
+    </div>
+    <div class="page-num">23 / 26</div>
+  </div>
+</section>
+
+<!-- 24 talent garden -->
+<section class="slide" data-i="24">
+  <div class="slide-inner">
+    <div class="garden">
+      <div class="garden-copy">
+        <div class="kicker">MOUNTAIN HEART · LIVING SYSTEM</div>
+        <h2>科创人才的美好生活后花园</h2>
+        <p class="dim" style="font-size:13px;margin-bottom:.8rem">山水环绕的景观资源应该被放大——能不能延伸上山，植入更多户外体验节点，将啤酒小镇打开，并用完整生活系统把人留到雪花科创城。</p>
+        <div class="pillars">
+          <div class="pillar"><b>01 · 山水放大</b><span>把尖岗山山水作为长期稀缺品经营，形成可感知的山城后花园界面。</span></div>
+          <div class="pillar"><b>02 · 上山节点</b><span>沿山脊与林缘植入徒步、营地、观景与户外运动节点，延长停留与回访。</span></div>
+          <div class="pillar"><b>03 · 啤酒小镇生活系统</b><span>以精酿社群与主题商业为入口，通过社群运营吸引高净值、重精神文化的人才「先来逛、再了解、最后住进雪花科创城」。</span></div>
+          <div class="pillar"><b>04 · 内容产品矩阵</b><span>文体活动、艺术展览、非标会展与快闪——用可参与内容完成从消费到居住的转化。</span></div>
+        </div>
+      </div>
+      <div class="garden-visual">
+        <div class="maps">
+          <img src="assets/image37.png" alt="山水与上山节点示意" />
+          <img src="assets/image38.png" alt="片区关系标注" />
+        </div>
+        <div class="life-strip">
+          <img src="assets/image39.jpeg" alt="文体" />
+          <img src="assets/image40.jpeg" alt="艺术" />
+          <img src="assets/image41.jpeg" alt="户外" />
+          <img src="assets/image42.jpeg" alt="社群" />
+          <img src="assets/image43.png" alt="会展/场景" />
+          <img src="assets/image44.png" alt="生活方式" />
+        </div>
+      </div>
+    </div>
+    <div class="page-num">24 / 26</div>
+  </div>
+</section>
+
+<!-- 25 summary -->
+<section class="slide slide-map" data-i="25">
+  <div class="slide-inner">
+    <div class="map-host" style="inset:0">
+      <img src="assets/image16-web.jpg" alt="三片区总图" style="width:100%;height:100%;object-fit:cover;filter:brightness(.55) saturate(.85)" />
+    </div>
+    <div class="summary-overlay"></div>
+    <div class="brand-mini">TEKUMA · 三类创新生态 × 三种美好生活</div>
+    <div class="summary-cards">
+      <div class="summary-card">
+        <div class="en">BAY HEART · BAOZHONG</div>
+        <h3>具身智能港 × 海城大都会</h3>
+        <ul>
+          <li>具身智能产业创新聚集区</li>
+          <li>高能级都市生活居所</li>
+        </ul>
+      </div>
+      <div class="summary-card">
+        <div class="en">CITY HEART · LINGZHI</div>
+        <h3>超级个体孵化器 × 潮流市井道街巷</h3>
+        <ul>
+          <li>低成本生活创新空间，超级个体/组织来深创业的第一落脚点</li>
+          <li>“道-街-巷”目的地系统，市井生活与潮流商业</li>
+        </ul>
+      </div>
+      <div class="summary-card">
+        <div class="en">MOUNTAIN HEART · JIANGANGSHAN</div>
+        <h3>智能终端创新园 × 湾区山城后花园</h3>
+        <ul>
+          <li>强运营型科创产业空间</li>
+          <li>科创人才的美好生活系统</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page-num">25 / 26</div>
+  </div>
+</section>
+
+<!-- 26 close -->
+<section class="slide slide-close" data-i="26">
+  <div class="slide-inner">
+    <div class="close-line">创业路，让<em>产业创新</em>与<em>美好生活</em>，一同生长。</div>
+    <div class="close-brand">TEKUMA · 宝安创业路</div>
+    <div class="page-num">26 / 26</div>
+  </div>
+</section>
+
+</div>
+
+<script src="lib/maplibre-gl.js"></script>
+<script src="js/maps.js"></script>
+<script src="js/deck.js"></script>
+<!--
+  Map notes (research/map-coords.md):
+  - WGS84 + Esri World Imagery. Masterplan image16 georeference approximate; east of 尖岗山 falls to live sat.
+  - Slide 10 enterprises: schematic around 具身智能港 approx [113.885,22.545] (~23km²), categories from image17 — NOT geocoded addresses.
+  - Slide 22: beer [113.915,22.583] → 留仙洞 → 西丽高铁枢纽 [113.9402,22.5700].
+  Research: corgicafe.com (HQ reported 5F / cafe ground); frontiertower.io; slides-16-17-text.md OCR.
+-->
+</body>
+</html>
